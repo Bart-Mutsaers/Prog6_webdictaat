@@ -258,3 +258,24 @@ figcaption {
 
      border-top-width: 0;
  }
+
+.github{
+    background-image:url("../img/GitHub-Mark.png");
+    background-size:contain;
+    background-repeat: no-repeat;
+    padding-left:25px;
+    padding-right:10px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    display:inline-block;
+    
+}
+
+.wrong{
+    text-decoration: line-through;
+}
+
+.error{
+    color:red;
+}
+
