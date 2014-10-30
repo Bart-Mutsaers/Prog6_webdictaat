@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Webdictaat Avans</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Frans Spijkerman &amp; Paul Wagener">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="static/css/webdictaat.css" rel="stylesheet">
+    <link rel="shortcut icon" href="http://www.avans.nl/favicon.64.png">
+
+    <script src="static/js/jquery-1.9.1.js"></script>
+    <script src="static/js/jquery-ui.js"></script>
+    <script src="static/ace/ace.js"></script>
+    <script src="static/js/webdictaat.js"></script>
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="index.html">WPFdictaat Avans</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list" id="theory">
+              <li class="nav-header">Theorie</li>
+              <li><a href="#">Inleiding </a>
+                    <ol class="nav nav-list">
+                    <li><a href="inleiding/www.html">Het World Wide Web</a></li>
+                    <li><a href="inleiding/geschiedenis.html">Geschiedenis van het Internet</a></li>
+                    <li><a href="inleiding/ontwerp.html">Ontwerpen van websites</a></li>
+                    </ol>
+                </li>
+              <li><a href="#">Week 1. Tags, lijsten &amp; links</a>
+                  <ol class="nav nav-list">
+                    <li><a href="basis/structuur.html">Basisstructuur van een webpagina</a></li>
+                    <li><a href="basis/tags.html">Basistags van HTML</a></li>
+                    <li><a href="basis/tekst.html">Tekstindeling</a></li>
+                    <li><a href="basis/lijsten.html">Lijsten</a></li>
+                    <li><a href="basis/links.html">Hyperlinks</a></li>
+                    <li><a href="basis/entiteiten.html">Entiteiten</a></li>
+                  </ol>
+              </li>
+              <li><a href="#">Week 2. Afbeeldingen, formulieren, tabellen</a>
+                  <ol class="nav nav-list">
+                    <li><a href="basis2/afbeeldingen.html">Afbeeldingen</a></li>
+                    <li><a href="basis2/formulieren.html">Formulieren</a></li>
+                    <li><a href="basis2/tabellen.html">Tabellen</a></li>
+                   </ol>
+              </li>
+              <li><a href="#">Week 3. CSS</a>
+                  <ol class="nav nav-list">
+                    <li><a href="css/intro.html">Stylesheets</a></li>
+                    <li><a href="css/selectors.html">Selectors</a></li>
+                    <li><a href="css/tekstopmaak.html">Tekstopmaak</a></li>
+                    <li><a href="css/boxmodel.html">Paddings &amp; margins</a></li>
+                    <li><a href="css/units.html">Maten &amp; kleuren</a></li>
+                    <li><a href="css/float.html">Float</a></li>
+                  </ol>
+              </li>
+              <li><a href="#">Week 4. CSS Layout</a>
+                <ol class="nav nav-list">
+                  <li><a href="layout/twee_kolommen.html">Twee kolommen</a></li>
+                  <li><a href="layout/centreren.html">Centreren</a></li>
+                  <li><a href="layout/positioneren.html">Positioneren</a></li>
+                  <li><a href="layout/dropdown_menu.html">Dropdown menu</a></li>
+                  <li><a href="layout/horizontaal_menu.html">Horizontaal menu</a></li>
+                </ol>
+              </li>
+              <li><a href="#">Week 5. Responsive webdesign</a>
+                  <ol class="nav nav-list">
+                    <li><a href="responsive/print.html">Print stylesheets</a></li>
+                    <li><a href="responsive/media-queries.html">Media queries</a></li>
+                  </ol>
+              </li>
+              <li><a href="#">Ontwerpen</a>
+                  <ol class="nav nav-list">
+                      <li><a href="ontwerp/plan.html">Het plan</a></li>
+                      <li><a href="ontwerp/functioneel.html">Functioneel ontwerp</a></li>
+                      <li><a href="ontwerp/technisch.html">Technisch ontwerp</a></li>
+                  </ol>
+              </li>
+            </ul>
+
+            <ul class="nav nav-list" id="assignments">
+              <li class="nav-header">Opdrachten</li>
+              <li><a href="basis/opdrachten.html">Opdrachten week 1</a></li>
+              <li><a href="basis2/opdrachten.html">Opdrachten week 2</a></li>
+              <li><a href="css/opdrachten.html">Opdrachten week 3</a></li>
+              <li><a href="layout/opdrachten.html">Opdrachten week 4</a></li>
+              <li><a href="responsive/opdrachten.html">Opdrachten week 5</a></li>
+              <li><a href="assignments/opdrachtE1.html">Eindopdracht deel 1</a></li>
+              <li><a href="assignments/opdrachtE2.html">Eindopdracht deel 2</a></li>
+              <li><a href="showcase/index.html">Showcase</a></li>
+            </ul>
+
+            <ul class="nav nav-list" id="links">
+              <li class="nav-header">Links</li>
+              <li><a href="http://www.learnlayout.com/">Learn Layout</a>
+              <li><a href="http://www.bitstorm.org/edwin/cursus/css.html">CSS tutorial (Edwin Martin)</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <article class="span9" id="content">
+            Welkom in het webdictaat. Kies iets in het menu
+        </article><!--/span-->
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <p>2014 Avans</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+  </body>
+</html>
