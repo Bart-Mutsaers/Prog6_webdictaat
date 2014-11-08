@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Inleiding - example</title>
+</head>
+
+<body>
+  <h2>Inleiding</h2>
+    
+          <h3>Introductie XAML</h3>
+    <div class="row">
+        <div class="col-md-6">
+
+
+            <p>
+              XML is een afkorting voor Based Markup language. Even voor de duidelijkheid, je spreek het uit als 'zammel'. Het is een onderdeel van het WPF
+              platform. Je kunt XAML defineren in een .XAML file net als in een .HTML file. Elke XAML file heeft een .CS file waar de 'code-behind' staat.
+            </p>
+
+            <p>
+              Je kunt de volgende elementen met XAML defineren:
+            </p>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <ul>
+                        <li>Windows</li>
+                        <li>dialog boxes</li>
+                        <li>pages</li>
+                        <li class="important">user controls!</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul>
+                        <li>controls</li>
+                        <li>Shapes</li>
+                        <li>graphics</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p>
+                Je zou de opbouw van een XAML document heel erg kunnen vergelijken met een HTML document.
+                Je bouwt een boom van <strong>Elementen</strong>  en de eigenschappen van deze elementen plaats je in de <strong>Attributen</strong>.
+                Deze geneste objecten leiden tot 'element tree' die gecompileerd word tot een user interface.
+            </p>
+        </div>
+        
+        <div class="col-md-6">
+               	<img src="img/windows8-winrt_thumb.png" class="img-thumbnail"/>
+        </div>
+        
+    </div>
+
+    
+    
+     <pre class="prettyprint linenums top-buffer">
+&lt;Window
+    xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;
+    Title=&quot;Window with Button&quot;
+    Width=&quot;250&quot; Height=&quot;100&quot;&gt;
+
+    &lt;!-- Add button to window --&gt;
+    &lt;Button Name=&quot;button&quot;&gt;Click Me!&lt;/Button&gt;
+
+&lt;/Window&gt;</pre>
+    
+    
+    <p class="top-buffer" >
+        WPF word voornamelijk gebruikt voor deskop applicaties. Daarnaast heb je ook nog Browser hosted applicaties. Deze applicaties hebben de naan XBAP'S. 
+        Wij gaan alleen aan de slag met de desktop applicaties. 
+    </p>
+
+    <p>
+        Je kunt een volledige applicatie opbouwen met verschillende windows en pages. 
+        Je kunt zoveel elementen toevoegen als je wil. Je bent daarentegen wel verplicht tot het gebruiken van een <strong>Application</strong> element.         
+        
+  </p>      
+  <p>
+        In een console applicatie heb je een <strong>Program</strong> class met een <strong>Main</strong> functie. Dit is de plek waar je applicatie begint.
+        Een dergelijke class heb je ook in XAML. Dit is de <strong>Application</strong> class en heeft een bijbehorend XAML element wat hem tot stand brengt.
+        In dit element kun je aangeven bij welk window je wil beginnen en eventuele andere logica uitvoeren.
+    </p>
+    
+    <div class="row top-buffer">
+        <div class="col-md-6">
+            <h4>Console App</h4>
+      <pre class="prettyprint linenums">
+class Program
+{
+    static void Main(string[] args)
+    {
+    }
+}</pre>       
+        </div>
+         <div class="col-md-6">
+             <h4>WPF App</h4>
+            <pre  class="prettyprint linenums">
+&lt;Application
+    xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot; 
+    StartupUri=&quot;MainWindow.xaml&quot; /&gt;    </pre>
+             
+            <pre  class="prettyprint linenums">
+public partial class App : Application
+{
+
+}</pre>
+    
+        </div>
+    </div>
+   
+
+    	
+    <div class="row top-buffer">
+        <h4>Bronnen</h4>
+        <ul>
+            <li><a href="http://msdn.microsoft.com/en-us/library/aa970268(v=vs.110).aspx">http://msdn.microsoft.com/en-us/library/aa970268(v=vs.110).aspx</a></li>
+            <li><a href="http://msdn.microsoft.com/en-us/library/cc295302.aspx">http://msdn.microsoft.com/en-us/library/cc295302.aspx</a></li>
+        </ul>
+    </div>
+    
+    
+    <!-- Deze regel javascript hebben we nodig voor het 'prettifyen' van onze code snippits -->
+    <script>
+      !function ($) {
+        $(function(){
+          window.prettyPrint && prettyPrint()   
+        })
+      }(window.jQuery)
+    </script>
+    
+
+    
+
+  </body>
+</html>

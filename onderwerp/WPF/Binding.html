@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>WPF Basics - Binding</title>
+</head>
+
+<body>
+    <h2>WPF Basics</h2>
+
+    <h3>Binding</h3>
+
+    <h4>Wat is Data-binding?</h4>
+    
+    <p>Data-binding is een verbinding tussen je graphical user interface en je bedrijs logica. WPF bevat een aantal componenten die je kunt instellen om XAML
+    elementen de waarde van een model te laten reflecteren. Als een property van het model veranderd, veranderen alle XAML elementen met een binding op die property mee. 
+    </p>
+    
+    <p>In de voorbeelden van XAML code in het vorige blok, heb ik laten zien dat je de XAML elementen via C# code kan bereiken en 
+        eventuele waardes of collecties kan aanpassen. De verantwoordelijkheid om de veranderingen op het model door te voeren in de view, willen we los trekke uit je bedrijfs logica. 
+        Data-binding is hier de perfecte oplossing voor.
+    </p>
+    
+    <img src="img/data-binding.png"/>
+
+    <h3 class="top-buffer">Binding in WPF</h3>
+    
+    <p>
+        We hebben een aantal dingen nodig om data-binding aan de praat te krijgen.
+        
+        <ul>
+            <li>Een XAML element om de data te tonen</li>
+            <li>Een Model met waardes waar we de 'view' tegen aan kunnen binden</li>
+        </ul>
+    </p>
+    
+    <p></p>
+    
+    <div class="row">
+        <div class="col-md-6">
+            
+            <h4>Model</h4>
+            <!-- code snippet -->
+            <pre class="prettyprint linenums">
+public class TemperatureVM{
+     private double _temperature;
+}</pre>
+        </div>
+        <div class="col-md-6">
+            
+            <h4>XAML Element</h4>
+            <!-- code snippet -->
+            <pre class="prettyprint linenums">
+ &lt;Label Content=&quot;The temperature is&quot;/&gt;
+ &lt;Label&gt;Hier wil ik de temperatuur hebben&lt;/Label&gt;</pre>
+        </div>
+    </div>
+    
+    <p>
+        Eerst moeten we de view vertellen op wat voor model hij zijn waardes kan baseren. Dit doen we met de <strong>Window.DataContext</strong> class. 
+        Hiermee kunnen we aangeven welke data onze view gaat gebruiken. Er zijn twee manieren om dit te realiseren. 
+        <ul>
+            <li>Decleratief</li>
+            <li>Code-behind</li>
+        </ul>
+        Het doel van data-binding is de verwijzingen vanuit je code naar de view zo minimaal mogelijk te houden. Als je de referentie vanuit de code-behind
+        file maakt dan leg je weer een sterke verbinding tussen je code en je view. Het is dus netter dit vanuit de view (decleratief) op te lossen.
+    </p>
+    
+    
+    <div class="row">
+        <div class="col-md-6">
+            
+            <h4>Decleratief</h4>
+            <!-- code snippet -->
+            <pre class="prettyprint linenums">
+&lt;Window.DataContext&gt;
+    &lt;local:TemperatureVM /&gt;
+&lt;/Window.DataContext&gt;</pre>
+        </div>
+        <div class="col-md-6">
+            
+            <h4>Code-behind</h4>
+            <!-- code snippet -->
+            <pre class="prettyprint linenums">
+public MainWindow()
+{
+    InitializeComponent();
+    DataContext = new TemperatureVM();
+}</pre>
+        </div>
+    </div>    
+
+
+    <p>Als laatste stap moeten we in het Model een Public Property maken die voldoet aan de eisen van het WPF data-binding framework. 
+        Daarnaast moeten we een referentie vanuit de view naar deze property leggen.
+    </p>
+
+             <p>Om te voldoen aan de eisen van WPF moeten we van ons model (wat op dit moment al een view model is ) een 
+                <strong>INotifyPropertyChanged</strong> object maken. Dit geeft ons toegang tot de data-binding eigenschappen van WPF.
+             </p>
+            <p>
+                Voor ieder property op je model zul je moeten aangeven dat de waarde gewijzigd is. Hierdoor zal automatisch de view ge-update worden.
+                Het aangeven van een wijziging doe je via <strong>RaisePropertyChanged();</strong> functie. De mee gegeven naam moet overeen komen met de naam
+                die je hebt aangegeving in je XAML element.
+            </p>    
+
+            <p>
+                De <strong>RaisePropertyChanged</strong> event gaat op zoek naar alle XAML elementen die een binding hebben openstaan met de meegegeven property. 
+                Om deze reden moet er ook een null check aanwezig zijn, aangezien het zo kan zijn dat er geen enkel element 'gebind' is aan de gewijzigde property.
+                Je hoeft deze event handler maar 1x aan te maken, en je hier verder geen zorgen over te maken.
+            </p>
+
+
+    <div class="row">
+        <div class="col-md-6">
+           
+            <p>
+                Als nu de waardes op het model veranderen, veranderd de view automatisch mee. Vanaf dit punt is het dus ook heel makkelijk om bijvoorbeeld een textveld
+                toe te voegen waar de gebruiker de waarde van de temperatuur kan aanpassen. Je hoeft alleen in het XAML element aan te geven dat je de waarde van het                     textveld wil data-binden aan de temperatuur. 
+            </p>
+        </div>
+        <div class="col-md-6">
+            
+            <h4>Data-binding vanuit XAML</h4>
+            
+            <!-- code snippet -->
+            <pre class="prettyprint linenums">
+&lt;Label Content=&quot;The temperature is&quot;/&gt;
+&lt;Label Content=&quot;{Binding Temperature}&quot;&gt;&lt;/Label&gt;</pre> 
+            
+            <!-- code snippet -->
+
+        </div>
+    </div>   
+
+            <pre class="prettyprint linenums">
+public class TemperatureVM : INotifyPropertyChanged
+{
+    private double _temperature;
+
+    public double Temperature 
+    {
+        get { return _temperature; }
+        set
+        {
+            _temperature = value;
+            RaisePropertyChanged(&quot;Temperature&quot;);
+        }
+    }
+    
+    #region INotifyPropertyChanged Members
+
+    void RaisePropertyChanged(string prop)
+    {
+        if (PropertyChanged != null) { PropertyChanged(this, new PropertyChangedEventArgs(prop)); }
+    }
+
+    public event PropertyChangedEventHandler PropertyChanged;
+
+    #endregion
+    
+}
+</pre>
+
+    
+
+
+        <h4>Bronnen</h4>
+        <ul>
+            <li><a href=" http://msdn.microsoft.com/en-us/library/ms752347(v=vs.110).aspx"> http://msdn.microsoft.com/en-us/library/ms752347(v=vs.110).aspx</a></li>
+        </ul>
+
+    
+   
+    <!-- Deze regel javascript hebben we nodig voor het 'prettifyen' van onze code snippits -->
+    <script>
+        
+      !function ($) {
+        $(function(){
+          window.prettyPrint && prettyPrint()   
+        })
+      }(window.jQuery)
+      
+    </script>
+
+
+  </body>
+</html>

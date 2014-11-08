@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Inleiding - example</title>
+</head>
+
+<body>
+    
+    
+    <h2>Inleiding</h2>
+
+    <h3>Introductie WPF</h3>      
+    <p>
+        WPF is een afkoring voor <strong>Windows Presentation Foundation</strong>. 
+        Het is een sub set van .NET classes die je de mogelijkheid biedt een rijke user interface te bouwen. 
+        Dit is niet de enige unieke eigenschap van WPF. De mogelijkheid tot het data-binden van je view aan je model
+        geeft je een beter scheiding tussen je GUI en je Bedrijs logica.
+    </p>
+    
+    <p>
+        Naast de onderliggende structuur, die je helpt een nette en onderhoudbare interface te bouwen, ondersteund WPF ook meerdere media formaten. 
+        Een van deze formaten is XAML, een markup language die gebaseerd is op XML.
+        Maar denk hierbij ook aan 2-D en 3-D Graphics, animaties, losse stylesheets, templates, documenten en media files (mp3, mp4).
+    </p>
+    
+    
+    <p>      
+        
+        WPF is resolutie onafhankelijk. Dit houd in dat op verschillende resoluties het zelfde resultaat getoont zal worden. 
+        De XAML interfaces worden <a target="_blank"  href="http://en.wikipedia.org/wiki/Vector_graphics">vector-based</a> gerenderd. 
+    </p>
+    
+
+    <h4>Een korte samenvatting van de geschiedenis van WPF</h4>
+    <div class="bar"></div>
+    <div class="timeline">
+        <div class="entry">
+            <h1>.NET Framework 3.0</h1>
+            <h2>Nov, 2006</h2>
+
+            1st release of WPF </br>
+            CLR version 2.0</br>
+            Visual Studio 2005 SP1</br>
+            Incl w/Windows Vista</br>
+        </div>
+        <div class="entry">
+            <h1>.NET Framework 3.5</h1>
+            <h2>Nov, 2007</h2>
+            Various improvements to WPF </br>
+            CLR version 2.0 SP1 </br>
+            Visual Studio 2008 </br>
+            Incl w/Windows 7 </br>
+        </div>
+        <div class="entry">
+            <h1>.NET Framework 3.5 SP1</h1>
+            <h2>Aug, 2008</h2>
+            Performance improvements to WPF </br>
+            CLR version 2.0 SP2 </br>
+            Visual Studio 2008 SP1 </br>
+        </div>
+        <div class="entry">
+            <h1>.NET Framework 4.0</h1>
+            <h2>Aug, 2012</h2>
+            Various improvements to WPF</br>
+            CLR version 4.0</br>
+            Visual Studio 2010
+
+        </div>
+        <div class="entry">
+            <h1>.NET Framework 4.5</h1>
+            <h2>Aug, 2012</h2>
+            Various improvements to WPF</br>
+            CLR version 4.5</br>
+            Visual Studio 2012</br>
+            Incl w/Windows 8
+        </div>
+    </div>
+    
+
+
+    <h3>Interface design</h3>
+    	
+    <p>
+        WPF bied je de mogelijkheid om je interfaces op 2 manieren te ontwikkelen.
+        Het defineren van je GUI in XAML of het opbouwen van je GUI in code ('code-behind').
+    </p>
+
+        
+    <div class="row">
+        <div class="col-md-6">
+            <pre  class="prettyprint linenums">
+&lt;Window x:Class=&quot;XAMLCodeBehind.MainWindow&quot;
+    xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;
+    xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+    Title=&quot;MainWindow&quot; Height=&quot;350&quot; Width=&quot;525&quot;&gt;
+    
+    &lt;Grid&gt;
+        &lt;Button&gt;Click Me&lt;/Button&gt;
+    &lt;/Grid&gt;
+&lt;/Window&gt;</pre>
+                
+            </div>
+            <div class="col-md-6">
+                <pre  class="prettyprint linenums">
+public partial class MainWindow : Window
+{
+    public MainWindow()
+    {
+        InitializeComponent();
+
+        Button button = new Button();
+        button.Content = &quot;Click me!&quot;;
+        Griddy.Children.Add(button);
+    }
+}</pre>
+        </div>
+     </div>
+        
+    <p>
+        Het is netjes en onderhoudbaar om het uiterlijk van de applicatie volledig in XAML te defineren. 
+        Het gedrag van de applicatie kan in de 'code-behind' van de applicatie worden gedefineerd. 
+    </p>
+    <p>           
+        Het design van je applicatie heeft op deze manier een losse koppeling met het gedrag van de aplicatie.
+        Hierdoor kan een designer los aan de GUI werken terwijl een ontwikkelaar het gedrag van de aplicatie tot stand brengt. 
+        Er zijn ook verschillende tools om aan de GUI te werken. Een van deze tools is <strong>Microsoft Blend</strong>.
+    </p>
+    <p>               
+        Je kunt nu vanuit de code bij de XAML elementen die hebt je gedefineerd.
+        De waardes die je op je model (bijv een database) hebt staan kun je nu dus mee geven aan deze elementen.
+        Het is daar en tegen netter om deze informatie niet te 'setten' maar te 'data-binden'.
+    </p>
+
+
+       <h3>Data Binding</h2>
+         <p>
+           WPF bied je de mogelijkheid tot het data-binden van informatie aan je view. 
+           In de andere variant van .NET (Windows Forms) had je ook al de mogelijkheid tot het binden van je data an je view.
+           Er werd alleen de mogelijkheid ondersteund tot one-way binding. 
+           In WPF kun je nu ook two-way bindingen implementeren. Dit zorgt er voor dat je model altijd up-2-date is van de laatste aanpassingen door de gebruiker.
+           Hierdoor word je model je 'single-source-of-truth' en hoef je je niet af te vragen of het model al is geupdate door de view.
+        </p>
+
+
+    <div class="row top-buffer">
+        <div class="col-md-6 text-center">
+            <img src="img/One_Way_Data_Binding.png" />
+        </div>
+        <div class="col-md-6 text-center">
+            <img src="img/Two_Way_Data_Binding.png"/>
+        </div>
+    </div>
+	
+
+        <h4>Bronnen</h4>
+        <ul>
+            <li><a href="http://wpf.2000things.com/2010/07/29/17-wpf-release-history">http://wpf.2000things.com/2010/07/29/17-wpf-release-history</a></li>
+            <li><a href="http://msdn.microsoft.com/en-us/library/aa970268(v=vs.110).aspx">http://msdn.microsoft.com/en-us/library/aa970268(v=vs.110).aspx</a></li>
+        </ul>
+
+
+    <!-- Deze regel javascript hebben we nodig voor het 'prettifyen' van onze code snippits -->
+    <script>
+      !function ($) {
+        $(function(){
+          window.prettyPrint && prettyPrint()   
+        })
+      }(window.jQuery)
+    </script>
+      
+
+  </body>
+</html>

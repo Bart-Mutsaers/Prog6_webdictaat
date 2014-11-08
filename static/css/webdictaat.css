@@ -175,8 +175,12 @@ body {
     list-style-position:inside;
 }
 
-#theory > li > a{
+.flex > li > a{
     color: purple !important;
+    background-image: url(../img/down.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
 }
 
 img.screenshot {
@@ -279,3 +283,77 @@ figcaption {
     color:red;
 }
 
+.CTD
+{
+  background-image:url("../img/CTD.png");
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: 20px 0px;
+    padding-left:60px;
+    padding-right:20px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    display:inline-block;
+}
+
+.CTD:hover
+{
+    background-position:  20px 0px;
+
+}
+
+.nav > li > a 
+{
+    padding:3px 15px !important;
+}
+
+.top-buffer { margin-top:30px; }
+.left-buffer { margin-left:30px;}
+
+.noPadding
+{
+    padding:0px;
+}
+
+#content > .row
+{
+    margin-left:0px;
+}
+
+#content > .row > div
+{
+    padding-left:0px;
+}
+
+.compile-container
+{
+
+    position: relative;
+    overflow:hidden;
+    width:100%;
+    padding-right:5%;
+}
+
+
+.slide
+{
+    position:absolute;
+    width:60%; height:100%;
+    top:0px; left:95%;
+    -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+    
+    border-left:1px solid lightgray;
+    background-color:white;
+    border-radius: 3px;
+    background-image: url(../img/example.png);
+    background-repeat: no-repeat;
+    background-position: left;    
+}
+
+.slide:hover
+{
+    left:40%;
+}

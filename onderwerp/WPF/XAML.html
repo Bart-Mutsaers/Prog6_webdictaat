@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Inleiding - example</title>
+</head>
+
+<body>
+  <h2>WPF Basics</h2>
+
+  <h3>XAML</h3>
+
+    <div class="row">
+        <div class="col-md-6">
+            <p>
+                Bij het opstarten van een WPF project krijg je gratis 2 XAML files. </br>
+                De vereiste <strong>App.xaml</strong> en een <strong>MainWindow.xaml</strong>. Beiden XAML files bevatten een code-behind .cs file.
+            </p>
+            
+            <p>
+                De aangeleverde MainWindow.xaml file bevat al standaard een titel, breedte, hoogte en Grid als child element. 
+                Nu kunnen we zelf een elementen boom gaan opbouwen in deze grid om een volledige user interface te krijgen.
+                Deze boom bestaat uit <strong>XML elementen</strong>.
+            </p>
+    
+            <p>
+                Elk XAML element bevat een referentie naar een .NET class. Je kunt dus ook zelf een class omzetten naar een XAML element.
+                De meest voorkomende manier waarop dit gebeurd zijn <strong>user controls</strong>
+                Het .NET framework bevat al een grote lijst aan voorgedefineerde classes.
+            </p>
+    
+            <p>
+                Om onze user interface te implementeren kunnen we een onderscheid maken tussen 2 soorten elementen.
+                Hieronder volgen een aantal voorbeelden van beiden type elementen.
+            </p>
+    
+        </div>
+        <div class="col-md-6">
+            <img src="img/XAMLFiles.png" class="img-thumbnail center-block" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">         
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Containers</h3>
+                </div>
+                <div class="panel-body">
+                    <p>
+                        Deze elementen hebben de eigenschap dat ze bedoeld zijn om andere elementen te positioneren.
+                        Ze hebben over het algemeen geen 'styling'.
+                        Daarnaast kunnen andere elementen doormiddel van 'attached properties' hun positie afhankelijk maken van deze containers.
+                    </p>
+                </div>
+                  
+                <ul class="list-group">         
+                  
+                    <!-- Dockpanels -->
+                  <li class="list-group-item compile-container" >          
+                      <h4>DockPanel</h4>
+                      
+                            <!-- Code Snippet -->
+                            <pre class="prettyprint linenums">
+&lt;DockPanel Width=&quot;100&quot; Height=&quot;50&quot;&gt;
+    &lt;Button Content=&quot;A&quot; DockPanel.Dock=&quot;Left&quot; Width=&quot;50&quot;/&gt;
+    &lt;Button Content=&quot;B&quot; DockPanel.Dock=&quot;Right&quot; Width=&quot;50&quot;/&gt;
+&lt;/DockPanel&gt;</pre>
+                              <!-- End of Snippet -->
+
+                             <div class="block slide text-center">
+
+                                 <img src="img/dockpanel.png" class="top-buffer"/>
+
+                             </div>
+
+                     </li>
+                    
+                    <!-- WrapPanels -->
+                    <li class="list-group-item compile-container">
+                           <h4>WrapPanels</h4>
+                        
+                             <!-- Code Snippet -->
+                            <pre class="prettyprint linenums">
+&lt;WrapPanel Width=&quot;100&quot; Height=&quot;60&quot;&gt;
+   &lt;Button Content=&quot;Left&quot; Width=&quot;50&quot;/&gt;
+   &lt;Button Content=&quot;Right&quot; Width=&quot;50&quot;/&gt;
+   &lt;Button Content=&quot;Left&quot; Width=&quot;30&quot;/&gt;
+   &lt;Button Content=&quot;Right&quot; Width=&quot;70&quot;/&gt;
+   &lt;Button Content=&quot;Right&quot; Width=&quot;100&quot;/&gt;
+&lt;/WrapPanel&gt;</pre>
+                              <!-- End of Snippet -->
+
+                             <div class="block slide text-center">
+                                 <img src="img/wrappanel.png" class="top-buffer"/>
+                             </div>
+                    
+                    </li>
+                    
+                    <!-- StackPanel -->
+                    <li class="list-group-item compile-container">
+                        <h4>StackPanel</h4>
+                        
+                        <!-- code snippet -->
+                        <pre class="prettyprint linenums">
+&lt;StackPanel Width=&quot;100&quot; Height=&quot;120&quot;&gt;
+   &lt;Button Content=&quot;Left&quot; Width=&quot;50&quot;/&gt;
+   &lt;Button Content=&quot;Right&quot; Width=&quot;50&quot;/&gt;
+   &lt;Button Content=&quot;Left&quot; Width=&quot;30&quot;/&gt;
+   &lt;Button Content=&quot;Right&quot; Width=&quot;70&quot;/&gt;
+   &lt;Button Content=&quot;Right&quot; Width=&quot;100&quot;/&gt;
+&lt;/StackPanel&gt;</pre>
+                        <!-- end of snippet -->
+
+                        <div class="block slide text-center">
+                            <img src="img/stackpanel.png" class="top-buffer"/>
+                        </div>
+                        
+                    </li>
+                    
+                    <!-- Grid -->
+                    <li class="list-group-item compile-container">
+                        <h4>Grid</h4>
+                        
+                        <!-- code snippet -->
+                        <pre class="prettyprint linenums">
+&lt;Grid Width=&quot;100&quot; Height=&quot;50&quot;&gt;
+   &lt;Grid.RowDefinitions&gt;
+       &lt;RowDefinition /&gt;
+   &lt;/Grid.RowDefinitions&gt;
+   &lt;Grid.ColumnDefinitions&gt;
+       &lt;ColumnDefinition /&gt;
+       &lt;ColumnDefinition /&gt;
+   &lt;/Grid.ColumnDefinitions&gt;
+   
+   &lt;Button Grid.Row=&quot;0&quot; Grid.Column=&quot;0&quot; Content=&quot;A&quot; /&gt;
+   &lt;Button Grid.Row=&quot;0&quot; Grid.Column=&quot;1&quot; Content=&quot;B&quot; /&gt;
+&lt;/Grid&gt;</pre>       
+                    <!-- end of snippet -->
+
+                        <div class="block slide text-center">
+                            <img src="img/Grid.png" class="top-buffer"/>
+                        </div>
+                                 
+                    </li>
+                    
+                    <!-- Border -->
+                    <li class="list-group-item compile-container">
+                        <h4>Border</h4>
+                        
+                        <!-- code snippet -->
+                        <pre class="prettyprint linenums">
+&lt;Border BorderThickness=&quot;5&quot; BorderBrush=&quot;Green&quot;
+        Width=&quot;50&quot; Height=&quot;50&quot;&gt;
+    &lt;Button Grid.Row=&quot;0&quot; Grid.Column=&quot;0&quot; Content=&quot;A&quot; /&gt;
+&lt;/Border&gt;</pre>
+                        <!-- end of snippet -->
+
+                        <div class="block slide text-center">
+                            <img src="img/border.png" class="top-buffer"/>
+                        </div>
+              
+                    </li>
+                </ul>
+                  
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">User Controls</h3>
+              </div>
+              <div class="panel-body">
+                 <p>
+                     Deze elementen hebben een functie binnen je pagina. Of ze tonen informatie, of geven de gebruiker de mogelijkheid
+                    input te leveren.      </br></br>
+
+                    De C# code die je ziet is gelinked aan een event vanuit de XAML.     </br></br>
+           
+             
+              </div>
+                
+                 
+                <ul class="list-group">         
+                  
+                    <!-- Button -->
+                  <li class="list-group-item compile-container" >          
+                      <h4>Button</h4>
+
+                             <!-- Code Snippet -->
+                            <pre class="prettyprint linenums">
+&lt;Button Content=&quot;A&quot; Click=&quot;ClickA&quot;&gt;&lt;/Button&gt;</pre>
+                              <!-- End of Snippet -->
+                      
+                            <!-- Code Snippet -->
+                            <pre class="prettyprint linenums">
+private void ClickA(object sender, RoutedEventArgs e)
+{
+    //Add Behavior here
+}
+</pre>
+                              <!-- End of Snippet -->
+
+                             <div class="block slide text-center">
+
+                                 <img src="img/button.png" class="top-buffer"/>
+
+                             </div>
+                     </li> 
+                    
+                    <!-- Button -->
+                  <li class="list-group-item compile-container" >          
+                      <h4>Button</h4>
+                      
+                            <!-- Code Snippet -->
+                            <pre class="prettyprint linenums">
+&lt;ListBox Name=&quot;Listy&quot;&gt;
+    &lt;ListBoxItem&gt;Item 1&lt;/ListBoxItem&gt;
+    &lt;ListBoxItem&gt;Item 2&lt;/ListBoxItem&gt;
+&lt;/ListBox&gt;</pre>
+                              <!-- End of Snippet -->
+
+                             <!-- Code Snippet -->
+                            <pre class="prettyprint linenums">
+Listy.Items.Add(new ListBoxItem
+    {
+        Content = &quot;Item 3&quot;
+    });</pre>
+                              <!-- End of Snippet -->
+                      
+
+
+                             <div class="block slide text-center">
+
+                                 <img src="img/listbox.png" class="top-buffer"/>
+
+                             </div>
+                     </li> 
+                    
+                  <!-- TextBox -->
+                  <li class="list-group-item compile-container" >          
+                      <h4>TextBox</h4>
+                      
+                            <!-- Code Snippet -->
+                            <pre class="prettyprint linenums">
+&lt;Grid Width=&quot;100&quot; Height=&quot;50&quot;&gt;
+    &lt;TextBox Name=&quot;Boxy&quot; Text=&quot;Hell world&quot; 
+    TextChanged=&quot;TextBox_TextChanged&quot;&gt;&lt;/TextBox&gt;
+&lt;/Grid&gt;</pre>
+                              <!-- End of Snippet -->
+
+                             <!-- Code Snippet -->
+                            <pre class="prettyprint linenums">
+private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+{
+    Console.WriteLine(Boxy.Text);
+};</pre>
+                              <!-- End of Snippet -->
+                      
+
+
+                             <div class="block slide text-center">
+
+                                 <img src="img/textbox.png" /></br>
+                                 <img src="img/output.png" />
+                             </div>
+                     </li> 
+            </div>
+        </div>
+    </div>
+
+ 
+
+    <!-- Deze regel javascript hebben we nodig voor het 'prettifyen' van onze code snippits -->
+    <script>
+        
+      !function ($) {
+        $(function(){
+          window.prettyPrint && prettyPrint()   
+        })
+      }(window.jQuery)
+      
+    </script>
+
+
+  </body>
+</html>

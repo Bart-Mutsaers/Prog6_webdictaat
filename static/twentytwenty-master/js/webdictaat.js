@@ -157,7 +157,7 @@ $(function() {
             $('.nav li').removeClass('active')
             $('.nav li:has(> a[href="'+url+'"])').addClass('active');
 
-            menu_index = $('.flex > li:has(a[href="'+url+'"])').index() - 1;
+            menu_index = $('#theory > li:has(a[href="'+url+'"])').index() - 1;
             if(menu_index >= 0)
                 accordion.accordion('option', 'active', menu_index);
 
