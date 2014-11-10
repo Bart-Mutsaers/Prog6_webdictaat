@@ -357,3 +357,13 @@ figcaption {
 {
     left:40%;
 }
+
+.nav > li > ul > li
+{
+    padding-left:20px;
+}
+
+.nav > li > ol > li 
+{
+    display: list-item;
+}
