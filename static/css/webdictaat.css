@@ -367,3 +367,8 @@ figcaption {
 {
     display: list-item;
 }
+
+.ui-state-active
+{
+    background-image:url("../img/up.png") !important;
+}

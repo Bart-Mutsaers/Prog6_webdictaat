@@ -58,7 +58,7 @@ public class TemperatureVM{
     </div>
     
     <p>
-        Eerst moeten we de view vertellen op wat voor model hij zijn waardes kan baseren. Dit doen we met de <strong>Window.DataContext</strong> class. 
+        Eerst moeten we de view vertellen op wat voor model hij zijn waardes kan baseren. Dit doen we met de <strong>Window.DataContext</strong> property. 
         Hiermee kunnen we aangeven welke data onze view gaat gebruiken. Er zijn twee manieren om dit te realiseren. 
         <ul>
             <li>Decleratief</li>
@@ -97,8 +97,8 @@ public MainWindow()
         Daarnaast moeten we een referentie vanuit de view naar deze property leggen.
     </p>
 
-             <p>Om te voldoen aan de eisen van WPF moeten we van ons model (wat op dit moment al een view model is ) een 
-                <strong>INotifyPropertyChanged</strong> object maken. Dit geeft ons toegang tot de data-binding eigenschappen van WPF.
+             <p>Om te voldoen aan de eisen van WPF moeten we van ons model (wat op dit moment al een view model is ) overervern van het interface  
+                <strong>INotifyPropertyChanged</strong>. Dit geeft ons toegang tot de data-binding eigenschappen van WPF.
              </p>
             <p>
                 Voor ieder property op je model zul je moeten aangeven dat de waarde gewijzigd is. Hierdoor zal automatisch de view ge-update worden.
