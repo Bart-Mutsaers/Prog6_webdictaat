@@ -16,16 +16,16 @@
     </p>
     
   <p>
-     Als we willen dat er een stuk logica uitgevoerd word op het model, willen we niet dat de logica weet dat er bijvoorbeeld een 'knop' is die deze logica uitvoert. 
+     Als we willen dat er een stuk logica uitgevoerd wordt op het model, willen we niet dat de logica weet dat er bijvoorbeeld een 'knop' is die deze logica uitvoert. 
      Nu is dit gemakkelijk te voorkomen door alleen een referentie vanuit de view naar het model te leggen. Bijvoorbeeld een event-handler zoals beschreven in de voorbeelden in het hoofdstuk <strong>XAML</strong>.
   </p>
     
     <p>
-        Het is daarentegen mogelijk dat de actie die de functie op het model 'triggerd' op verschillende manieren aangeroepen kan worden. Denk bijvoorbeeld aan een actie zoals knippen en plakken. Dit kan vanuit een menu, ctrl-c > ctrl-v, rechtermuisknop, etc..
+        Het is daarentegen mogelijk dat de actie die de functie op het model 'triggert' op verschillende manieren aangeroepen kan worden. Denk bijvoorbeeld aan een actie zoals knippen en plakken. Dit kan vanuit een menu, ctrl-c > ctrl-v, rechtermuisknop, etc..
     </p>
     
     <p>
-        WPF bied je de mogelijkheid de getriggerde actie los te koppelen van de uit te voeren logica. Dit heet een <strong>Command</strong>.
+        WPF biedt je de mogelijkheid de getriggerde actie los te koppelen van de uit te voeren logica. Dit heet een <strong>Command</strong>.
     </p>
 
     
@@ -97,7 +97,7 @@ public class TemperatureVM : INotifyPropertyChanged
     
         De <strong>Constructor</strong> is de beste plaats om toegang tot ons view model te krijgen. Geef het View Model mee als parameter, en sla hem op als
         private field. De <strong>CanExecute</strong> method bepaalt of het commando uitgevoerd kan worden. Bepaalde XAML elementen zullen ge-disabled worden indien 
-    CanExecute false returned. De <strong>Execute</strong> methode voert uiteindelijk de business logica uit.
+    CanExecute false returnt. De <strong>Execute</strong> methode voert uiteindelijk de bedrijfslogica uit.
     </p>
     
     <p>

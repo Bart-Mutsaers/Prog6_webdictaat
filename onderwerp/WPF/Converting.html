@@ -11,7 +11,7 @@
 
   <h3>Converting</h3>
   
-   <p>Het kan zo zijn dat je nog een stukje logica op je 'data' wilt utivoeren voordat je deze toont in de view. 
+   <p>Het kan zo zijn dat je nog een stukje logica op je 'data' wilt uitvoeren voordat je deze toont in de view. 
     Nu is het de vraag of deze logica nu bij de view hoort, of bij het model. Het antwoord is <strong>geen van beiden</strong>. 
        (pa pa pa paaaaah)*
     </p>
@@ -32,14 +32,14 @@
             <h4>IValueConverter</h4>
             <p>De WPF library bevat een interface genaamd <strong>IValueConverter</strong> met een methode <strong>Convert</strong> en een 
                 methode <strong>ConvertBack</strong>. Deze method's hebben een input parameter van het type object, en een return value van het type object.
-                Hier kun je eventuele logica in kwijt voor het bewerken van je data die uitgevoerd word tijdens de two-way binding.     
+                Hier kun je eventuele logica in kwijt voor het bewerken van je data die uitgevoerd wordt tijdens de two-way binding.     
             </p>
                      
             <img class="top-buffer" src="img/valueconverters.png" />
 
             <p class="top-buffer">
-                Naast een collectie van voorgedefineerde converters kun je dus ook je eigen converter bouwen volgens de regels hierboven. 
-                Je kan zelf een klasse uitbreiden met de interface <strong>IValueConverter</strong> en de bijbehorende methodes implementeren. 
+                Naast een collectie van voorgedefinieerde converters kun je dus ook je eigen converter bouwen volgens de regels hierboven. 
+                Je kunt zelf een klasse uitbreiden met de interface <strong>IValueConverter</strong> en de bijbehorende methodes implementeren. 
                 Je kunt nu je eigen logica kwijt in deze converter.
             
             </p>
@@ -96,8 +96,8 @@ class DegreesToAngleConverter : IValueConverter
 {
     public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
     {
-        //In deze methode converteer ik de temperatuur naar de juiste hoek voor het plaatje zodat de temp overeenkomt.
-        //De waardes zijn door 'trial and error' aangepast zodat het lijtk dat de meter op de juiste temp staat
+        //In deze methode wordt de temperatuur naar de juiste hoek geconverteerd voor het plaatje zodat de temp overeenkomt.
+        //De waardes zijn door 'trial and error' aangepast zodat het lijkt dat de meter op de juiste temp staat
         double result = (double)value;
         return result * 2.30 - 63.049;
     }
@@ -113,9 +113,9 @@ class DegreesToAngleConverter : IValueConverter
 
     <p>
         Hierna kun je deze converter gebruiken in je project. Je kunt vanuit de XAML code aangeven dat je een converter 
-        wilt toepassen op een bepaalde binding. In het voorbeeld gebruik ik een XAML element genaamd <strong>Image.RenderTransform</strong> om het plaatje
+        wilt toepassen op een bepaalde binding. In het voorbeeld wordt een XAML element genaamd <strong>Image.RenderTransform</strong> gebruikt om het plaatje
         onder een bepaalde hoek te draaien. Deze hoek kun je terugvinden in het element <strong>RotateTransform</strong> onder het atribuut <strong>Angle</strong>.
-        Hier geef ik naast een <strong>Binding</strong> ook een <strong>Converter</strong> met de verwijzing naar een static resource.
+        Hier wordt naast een <strong>Binding</strong> ook een <strong>Converter</strong> gegeven met de verwijzing naar een static resource.
         Het is namelijk niet mogelijk om rechstreeks een verwijzing naar de gedefineerde class te maken. We moeten deze class toegankelijk maken in de vorm van een
         <strong>Resource</strong>.
     </p>
