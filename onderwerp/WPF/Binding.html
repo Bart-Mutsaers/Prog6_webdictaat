@@ -13,12 +13,13 @@
 
     <h4>Wat is Data-binding?</h4>
     
-    <p>Data-binding is een verbinding tussen je graphical user interface en je bedrijs logica. WPF bevat een aantal componenten die je kunt instellen om XAML
+    <p>Data-binding is een verbinding tussen je graphical user interface en je bedrijfslogica. WPF bevat een aantal componenten die je kunt instellen om XAML
     elementen de waarde van een model te laten reflecteren. Als een property van het model veranderd, veranderen alle XAML elementen met een binding op die property mee. 
     </p>
     
     <p>In de voorbeelden van XAML code in het vorige blok, heb ik laten zien dat je de XAML elementen via C# code kan bereiken en 
-        eventuele waardes of collecties kan aanpassen. De verantwoordelijkheid om de veranderingen op het model door te voeren in de view, willen we los trekke uit je bedrijfs logica. 
+        eventuele waardes of collecties kan aanpassen. De verantwoordelijkheid om de veranderingen op het model door te voeren in de view, 
+        moet losgekopppeld worden van de bedrijfslogica. 
         Data-binding is hier de perfecte oplossing voor.
     </p>
     
@@ -61,18 +62,18 @@ public class TemperatureVM{
         Eerst moeten we de view vertellen op wat voor model hij zijn waardes kan baseren. Dit doen we met de <strong>Window.DataContext</strong> property. 
         Hiermee kunnen we aangeven welke data onze view gaat gebruiken. Er zijn twee manieren om dit te realiseren. 
         <ul>
-            <li>Decleratief</li>
+            <li>Declaratief</li>
             <li>Code-behind</li>
         </ul>
-        Het doel van data-binding is de verwijzingen vanuit je code naar de view zo minimaal mogelijk te houden. Als je de referentie vanuit de code-behind
-        file maakt dan leg je weer een sterke verbinding tussen je code en je view. Het is dus netter dit vanuit de view (decleratief) op te lossen.
+        Het doel van data-binding is om zo min mogelijk verwijzingen vanuit je code naar de view te maken. Als je de referentie vanuit de code-behind
+        file maakt dan leg je weer een sterke verbinding tussen je code en je view. Het is dus netter dit vanuit de view (declaratief) op te lossen.
     </p>
     
     
     <div class="row">
         <div class="col-md-6">
             
-            <h4>Decleratief</h4>
+            <h4>Declaratief</h4>
             <!-- code snippet -->
             <pre class="prettyprint linenums">
 &lt;Window.DataContext&gt;
@@ -97,18 +98,18 @@ public MainWindow()
         Daarnaast moeten we een referentie vanuit de view naar deze property leggen.
     </p>
 
-             <p>Om te voldoen aan de eisen van WPF moeten we van ons model (wat op dit moment al een view model is ) overervern van het interface  
+             <p>Om te voldoen aan de eisen van WPF moeten we van ons model (wat op dit moment al een view model is ) laten overerven van het interface  
                 <strong>INotifyPropertyChanged</strong>. Dit geeft ons toegang tot de data-binding eigenschappen van WPF.
              </p>
             <p>
-                Voor ieder property op je model zul je moeten aangeven dat de waarde gewijzigd is. Hierdoor zal automatisch de view ge-update worden.
-                Het aangeven van een wijziging doe je via <strong>RaisePropertyChanged();</strong> functie. De mee gegeven naam moet overeen komen met de naam
+                Voor ieder property op je model zul je moeten aangeven dat de waarde gewijzigd is. Hierdoor zal automatisch de view ge&uuml;pdate worden.
+                Het aangeven van een wijziging doe je via het event <strong>RaisePropertyChanged</strong>. De mee gegeven naam moet overeen komen met de naam
                 die je hebt aangegeving in je XAML element.
             </p>    
 
             <p>
-                De <strong>RaisePropertyChanged</strong> event gaat op zoek naar alle XAML elementen die een binding hebben openstaan met de meegegeven property. 
-                Om deze reden moet er ook een null check aanwezig zijn, aangezien het zo kan zijn dat er geen enkel element 'gebind' is aan de gewijzigde property.
+                Het <strong>RaisePropertyChanged</strong> event gaat op zoek naar alle XAML elementen die een binding hebben openstaan met de meegegeven property. 
+                Om deze reden moet er ook een null check aanwezig zijn. Het kan namelijk zo zijn dat er geen enkel element 'gebind' is aan de gewijzigde property.
                 Je hoeft deze event handler maar 1x aan te maken, en je hier verder geen zorgen over te maken.
             </p>
 
@@ -117,8 +118,9 @@ public MainWindow()
         <div class="col-md-6">
            
             <p>
-                Als nu de waardes op het model veranderen, veranderd de view automatisch mee. Vanaf dit punt is het dus ook heel makkelijk om bijvoorbeeld een textveld
-                toe te voegen waar de gebruiker de waarde van de temperatuur kan aanpassen. Je hoeft alleen in het XAML element aan te geven dat je de waarde van het                     textveld wil data-binden aan de temperatuur. 
+                Als nu de waardes op het model veranderen, veranderd de view automatisch mee. 
+                Vanaf dit punt is het dus ook heel makkelijk om bijvoorbeeld een textveld toe te voegen waar de gebruiker de waarde van de temperatuur kan aanpassen.
+                Je hoeft alleen in het XAML element aan te geven dat je de waarde van het textveld wilt data-binden aan de temperatuur. 
             </p>
         </div>
         <div class="col-md-6">

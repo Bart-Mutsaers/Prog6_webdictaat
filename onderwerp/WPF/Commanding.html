@@ -12,16 +12,16 @@
   <h3>Commanding</h3>
 
 
-  <p>In de uitleg over Binding werd als voorbeeld een property <strong>Temperature</strong> 'gebind' aan een Label. De uitleg in dit hoofdstuk bouwt verder op de voorbelden uit het hoofdstuk <strong>Binding</strong>.
+  <p>In de uitleg over Binding werd als voorbeeld een property <strong>Temperature</strong> 'gebind' aan een Label. De uitleg in dit hoofdstuk bouwt verder op de voorbeelden uit het hoofdstuk <strong>Binding</strong>.
     </p>
     
   <p>
      Als we willen dat er een stuk logica uitgevoerd word op het model, willen we niet dat de logica weet dat er bijvoorbeeld een 'knop' is die deze logica uitvoert. 
-     Nu is dit makkelijk te voorkomen door alleen een referentie vanuit de view naar het model te leggen. Bijvoorbeeld een event-handler zoals beschreven in de voorbeelden in het hoofdstuk <strong>XAML</strong>.
+     Nu is dit gemakkelijk te voorkomen door alleen een referentie vanuit de view naar het model te leggen. Bijvoorbeeld een event-handler zoals beschreven in de voorbeelden in het hoofdstuk <strong>XAML</strong>.
   </p>
     
     <p>
-        Het is daarentegen mogelijk dat de actie die de functie op het model 'triggerd' op verschillende manieren aangoepen kan worden. Denk bijvoorbeeld aan een actie zoals knippen en plakken. Dit kan vanuit een menu, ctrl-c > ctrl-v, rechtermuisknop, etc..
+        Het is daarentegen mogelijk dat de actie die de functie op het model 'triggerd' op verschillende manieren aangeroepen kan worden. Denk bijvoorbeeld aan een actie zoals knippen en plakken. Dit kan vanuit een menu, ctrl-c > ctrl-v, rechtermuisknop, etc..
     </p>
     
     <p>
@@ -32,7 +32,7 @@
     <h3>De code</h3>
     
     <p>
-        Een <strong>Command</strong> in WPF is een voorgedefineerde .NET interface die je toe kan voegen op je model. Je maakt dan de command verantwoordelijk voor de                 aanpassingen op je model, of tot het uitvoeren van een functie op je model. Op regel 18 van de onderstaande code snippit staat de verwijzing naar een implementatie van het interface
+        Een <strong>Command</strong> in WPF is een voorgedefinieerde .NET interface die je toe kan voegen op je model. Je maakt dan de command verantwoordelijk voor de                 aanpassingen op je model, of tot het uitvoeren van een functie op je model. Op regel 18 van de onderstaande code snippit staat de verwijzing naar een implementatie van het interface
         <strong>ICommand</strong> met de naam SetLowCommand.
     </p>
     
@@ -97,13 +97,13 @@ public class TemperatureVM : INotifyPropertyChanged
     
         De <strong>Constructor</strong> is de beste plaats om toegang tot ons view model te krijgen. Geef het View Model mee als parameter, en sla hem op als
         private field. De <strong>CanExecute</strong> method bepaalt of het commando uitgevoerd kan worden. Bepaalde XAML elementen zullen ge-disabled worden indien 
-    CanExecute false returned. De <strong>Execute</strong>strong> methode voert uiteindelijk de business logica uit.
+    CanExecute false returned. De <strong>Execute</strong> methode voert uiteindelijk de business logica uit.
     </p>
     
     <p>
         Het <strong>CanExecuteChanged</strong> event kun je vergelijken met het <strong>RaisePropertyChanged</strong> uit het hoofdstuk binding.
-        Het kan zo zijn dat er meerdere knoppen een binding hebben met je gedefineerde command. Het <strong>CanExecuteChanged</strong> event zorgt er voor dat
-        alle XAML elementen geupade worden wanneer de waarde van <strong>CanExecute</strong> wijzigt.
+        Het kan zo zijn dat er meerdere knoppen een binding hebben met je gedefinieerde command. Het <strong>CanExecuteChanged</strong> event zorgt er voor dat
+        alle XAML elementen ge&uuml;pdatet worden wanneer de waarde van <strong>CanExecute</strong> wijzigt.
     </p>
             
     <h4>SetLowCommand</h4>
