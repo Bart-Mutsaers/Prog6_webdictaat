@@ -68,12 +68,25 @@ public class TemperatureVM{
         Het doel van data-binding is om zo min mogelijk verwijzingen vanuit je code naar de view te maken. Als je de referentie vanuit de code-behind
         file maakt dan leg je weer een sterke verbinding tussen je code en je view. Het is dus netter dit vanuit de view (declaratief) op te lossen.
     </p>
+
+    <p>
+        Om dit te realiseren moet je wel toegang hebben tot de namespace waar de data (je model of view model) zich bevind. Je kunt toegang tot een namespace
+        verlenen door een referentie toe te voegen in je window met het <strong>xmlns</strong> attribuut. 
+        Je kunt elke include een eigen naam geven zodat je via deze naam de onderliggende classes kunt benaderen. 
+        In het voorbeeld noem ik de namespace 'local'.
+    </p>
     
     
     <div class="row">
         <div class="col-md-6">
             
             <h4>Declaratief</h4>
+            
+            <!-- code snippet -->
+            <pre class="prettyprint linenums">
+xmlns:local=&quot;clr-namespace:CommandingAndBindingDemo&quot;</pre>
+            <!-- end of snippet -->
+            
             <!-- code snippet -->
             <pre class="prettyprint linenums">
 &lt;Window.DataContext&gt;
@@ -121,6 +134,8 @@ public MainWindow()
                 Als nu de waardes op het model veranderen, veranderd de view automatisch mee. 
                 Vanaf dit punt is het dus ook heel makkelijk om bijvoorbeeld een textveld toe te voegen waar de gebruiker de waarde van de temperatuur kan aanpassen.
                 Je hoeft alleen in het XAML element aan te geven dat je de waarde van het textveld wilt data-binden aan de temperatuur. 
+                In het voorbeeld geef ik ook aan <strong>wanneer</strong> de property Temperature geupdate moet worden via het binding attribuut 
+                <strong>UpdateSourceTrigger</strong>. 
             </p>
         </div>
         <div class="col-md-6">
@@ -130,7 +145,8 @@ public MainWindow()
             <!-- code snippet -->
             <pre class="prettyprint linenums">
 &lt;Label Content=&quot;The temperature is&quot;/&gt;
-&lt;Label Content=&quot;{Binding Temperature}&quot;&gt;&lt;/Label&gt;</pre> 
+&lt;Label Content=&quot;{Binding Temperature}&quot;&gt;&lt;/Label&gt;
+&lt;TextBox Text=&quot;{Binding Temperature, UpdateSourceTrigger=PropertyChanged}&quot; /&gt;</pre> 
             
             <!-- code snippet -->
 
