@@ -14,10 +14,10 @@
     <h4>Wat is Data-binding?</h4>
     
     <p>Data-binding is een verbinding tussen je graphical user interface en je bedrijfslogica. WPF bevat een aantal componenten die je kunt instellen om XAML
-    elementen de waarde van een model te laten reflecteren. Als een property van het model veranderd, veranderen alle XAML elementen met een binding op die property mee. 
+    elementen de waarde van een model te laten reflecteren. Als een property van het model verandert, veranderen alle XAML elementen met een binding op die property mee. 
     </p>
     
-    <p>In de voorbeelden van XAML code in het vorige blok, heb ik laten zien dat je de XAML elementen via C# code kan bereiken en 
+    <p>In de voorbeelden van XAML code in het vorige blok, werd getoond dat je de XAML elementen via C# code kan bereiken en 
         eventuele waardes of collecties kan aanpassen. De verantwoordelijkheid om de veranderingen op het model door te voeren in de view, 
         moet losgekopppeld worden van de bedrijfslogica. 
         Data-binding is hier de perfecte oplossing voor.
@@ -115,9 +115,9 @@ public MainWindow()
                 <strong>INotifyPropertyChanged</strong>. Dit geeft ons toegang tot de data-binding eigenschappen van WPF.
              </p>
             <p>
-                Voor ieder property op je model zul je moeten aangeven dat de waarde gewijzigd is. Hierdoor zal automatisch de view ge&uuml;pdate worden.
-                Het aangeven van een wijziging doe je via het event <strong>RaisePropertyChanged</strong>. De mee gegeven naam moet overeen komen met de naam
-                die je hebt aangegeving in je XAML element.
+                Voor ieder property op je model zul je moeten aangeven dat de waarde gewijzigd is. Hierdoor zal automatisch de view ge&uuml;pdatet worden.
+                Het aangeven van een wijziging doe je via het event <strong>RaisePropertyChanged</strong>. De meegegeven naam moet overeenkomen met de naam
+                die je hebt aangegeven in je XAML element.
             </p>    
 
             <p>
@@ -131,7 +131,7 @@ public MainWindow()
         <div class="col-md-6">
            
             <p>
-                Als nu de waardes op het model veranderen, veranderd de view automatisch mee. 
+                Als nu de waardes op het model veranderen, verandert de view automatisch mee. 
                 Vanaf dit punt is het dus ook heel makkelijk om bijvoorbeeld een textveld toe te voegen waar de gebruiker de waarde van de temperatuur kan aanpassen.
                 Je hoeft alleen in het XAML element aan te geven dat je de waarde van het textveld wilt data-binden aan de temperatuur. 
                 In het voorbeeld geef ik ook aan <strong>wanneer</strong> de property Temperature geupdate moet worden via het binding attribuut 
